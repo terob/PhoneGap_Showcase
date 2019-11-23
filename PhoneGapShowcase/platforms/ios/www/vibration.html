@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+<style>
+a.disabled {
+  /* Make the disabled links grayish*/
+  color: gray;
+  /* And disable the pointer events */
+  pointer-events: none;
+}
+</style>
+  <meta charset="UTF-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+  <title>Index</title>
+  <link rel='stylesheet' href='./css/bootstrap.min.css'>
+  <link rel="stylesheet" href="./css/sidebarNavigation.css">
+  <script  src="cordova.js"></script>
+  <link href="./styles/monokai-sublime.css" rel="stylesheet">
+  <link href="./css/all.css" rel="stylesheet"> <!--load all styles -->
+  <script src="./js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+<nav class="navbar navbar-inverse sidebarNavigation" data-sidebarClass="navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle left-navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">PhoneGap Showcase</a>
+    </div>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active-no"><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Plugin API <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="battery.html">Battery Status</a></li>
+            <li><a href="camera.html">Camera</a></li>
+            <li><a href="device_info.html">Device Info</a></li>
+            <li><a href="dialogs.html">Dialogs</a></li>
+            <li><a href="geolocation.html">Geolocation</a></li>
+            <li><a href="in_app_browser.html">InAppBrowser</a></li>
+            <li><a href="media.html">Media</a></li>
+            <li><a href="network_information.html">Network Information</a></li>
+            <li><a href="vibration.html">Vibration</a></li>
+            <li><a href="device_motion.html">Device Motion</a></li>
+            <li><a href="file.html">File</a></li>
+            <li><a href="file_transfer.html">File Transfer</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="json.html"><span class="glyphicon glyphicon-globe"></span> JSON</a></li>
+        <li><a href="android.html"><i class="fab fa-android"></i> Publish in Android Store</a></li>
+        <li><a href="apple.html"><i class="fab fa-apple"></i> Publish in IOS Store</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script src='./js/jquery.min.js'></script>
+<script src='./js/bootstrap.min.js'></script>
+<script  src="./js/sidebarNavigation.js"></script>
+
+<div class="container-fluid panel-body text-center">
+
+<h3>Vibration:</h3>
+
+<p><button id="btn_vibration">Vibration 5 seconds</button></p>
+
+  <div class="text-left">
+<pre><code>
+function vibrate(){
+  navigator.vibrate(5000);
+}
+</code></pre>
+  </div>
+
+<script  src="./js/index.js"></script>
+</div>
+</body>
+
+</html>

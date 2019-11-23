@@ -1,0 +1,66 @@
+{
+  "_from": "git+https://github.com/litehelpers/Cordova-sqlite-legacy-build-support.git",
+  "_id": "cordova-sqlite-legacy@3.0.0",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/cordova-sqlite-legacy",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/litehelpers/Cordova-sqlite-legacy-build-support",
+    "rawSpec": "https://github.com/litehelpers/Cordova-sqlite-legacy-build-support",
+    "saveSpec": "git+https://github.com/litehelpers/Cordova-sqlite-legacy-build-support.git",
+    "fetchSpec": "https://github.com/litehelpers/Cordova-sqlite-legacy-build-support.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/litehelpers/Cordova-sqlite-legacy-build-support.git#4803c94c52e8612ef4739dfc1a9c919b8b5e282a",
+  "_spec": "https://github.com/litehelpers/Cordova-sqlite-legacy-build-support",
+  "_where": "C:\\Users\\MELLEM\\Documents\\PhoneGap\\First app",
+  "author": {
+    "name": "various"
+  },
+  "bugs": {
+    "url": "https://github.com/litehelpers/cordova-sqlite-legacy/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-sqlite-legacy",
+    "platforms": [
+      "android",
+      "ios",
+      "osx",
+      "windows"
+    ]
+  },
+  "dependencies": {
+    "cordova-sqlite-ext-deps": "1.1.1"
+  },
+  "deprecated": false,
+  "description": "Native interface to SQLite for PhoneGap/Cordova - legacy plugin version with limited extra features",
+  "devDependencies": {
+    "shelljs": "^0.7.4"
+  },
+  "homepage": "https://github.com/litehelpers/cordova-sqlite-legacy",
+  "keywords": [
+    "sqlite",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-osx",
+    "cordova-windows"
+  ],
+  "license": "MIT",
+  "name": "cordova-sqlite-legacy",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/litehelpers/cordova-sqlite-legacy.git"
+  },
+  "scripts": {
+    "start": "node scripts/prepareSpec.js"
+  },
+  "version": "3.0.0"
+}

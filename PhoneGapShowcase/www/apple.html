@@ -1,0 +1,568 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+<style>
+a.disabled {
+  /* Make the disabled links grayish*/
+  color: gray;
+  /* And disable the pointer events */
+  pointer-events: none;
+}
+</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" 
+            content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; 
+            style-src 'self' 'unsafe-inline'; 
+            media-src *; 
+            script-src 'self' 'unsafe-inline';
+            img-src 'self' data: content:;">
+  <title>Index</title>
+  <link rel='stylesheet' href='./css/bootstrap.min.css'>
+  <link rel="stylesheet" href="./css/sidebarNavigation.css">
+  <script  src="cordova.js"></script>
+  <link href="./styles/monokai-sublime.css" rel="stylesheet">
+  <link href="./css/all.css" rel="stylesheet"> <!--load all styles -->
+  <script src="./js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="css/mdb.min.css">
+  <!-- Your custom styles (optional) -->
+  <link rel="stylesheet" href="css/style.css">
+
+
+<!-- Stepper CSS -->
+<link href="css/addons-pro/steppers.css" rel="stylesheet">
+<!-- Stepper CSS - minified-->
+<link href="css/addons-pro/steppers.min.css" rel="stylesheet">
+
+<!-- Stepper JavaScript -->
+<script type="text/javascript" src="js/addons-pro/stepper.js"></script>
+<!-- Stepper JavaScript - minified -->
+<script type="text/javascript" src="js/addons-pro/stepper.min.js"></script>
+
+</head>
+
+<body>
+<nav class="navbar navbar-inverse sidebarNavigation" data-sidebarClass="navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle left-navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">PhoneGap Showcase</a>
+    </div>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active-no"><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Plugin API <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="battery.html">Battery Status</a></li>
+            <li><a href="camera.html">Camera</a></li>
+            <li><a href="device_info.html">Device Info</a></li>
+            <li><a href="dialogs.html">Dialogs</a></li>
+            <li><a href="geolocation.html">Geolocation</a></li>
+            <li><a href="in_app_browser.html">InAppBrowser</a></li>
+            <li><a href="media.html">Media</a></li>
+            <li><a href="network_information.html">Network Information</a></li>
+            <li><a href="vibration.html">Vibration</a></li>
+            <li><a href="device_motion.html">Device Motion</a></li>
+            <li><a href="file.html">File</a></li>
+            <li><a href="file_transfer.html">File Transfer</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="json.html"><span class="glyphicon glyphicon-globe"></span> JSON</a></li>
+        <li><a href="android.html"><i class="fab fa-android"></i> Publish in Android Store</a></li>
+        <li><a href="apple.html"><i class="fab fa-apple"></i> Publish in IOS Store</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script src='./js/jquery.min.js'></script>
+<script src='./js/bootstrap.min.js'></script>
+<script  src="./js/sidebarNavigation.js"></script>
+
+<div class="container-fluid panel-body text-center">
+
+<h3>Publishing in IOS Store:</h3>
+
+  <!-- Start your project here-->  
+<!-- Steppers Navigation -->
+<div class="row mt-1">
+  <div class="col-md-12 text-center">
+    <button class="btn btn-flat btn-sm" id="preavious">Preavious</button>
+    <button class="btn btn-primary btn-sm" id="next">Next</button>
+  </div>
+</div>
+
+<!-- Vertical Steppers -->
+<div class="row mt-1">
+  <div class="col-md-12">
+
+    <!-- Stepers Wrapper -->
+    <div id="stepper_content"></div>
+    <!-- /.Stepers Wrapper -->
+
+  </div>
+</div>
+
+<!-- /.Vertical Steppers -->
+  <!-- End your project here-->
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Your custom scripts (optional) -->
+  <script type="text/javascript"></script>
+
+
+<script>
+var steps = [];
+var step;
+
+step = `
+    <ul class="stepper stepper-vertical">
+
+  <!-- First Step -->
+  <li class="active">
+        <!--Section Title -->
+        <a href="#!">
+          <span class="circle">1</span>
+          <span class="label">Get Apple Developer Account</span>
+        </a>
+
+        <!-- Section Description -->
+        <div class="step-content grey lighten-3">
+          <p>First you have to have apple ID and enabled two-factor authentication</p>
+          <p><a href="https://support.apple.com/en-us/HT204915">About two factor authentication in apple</a></p>
+          <p><a href="https://developer.apple.com/programs/enroll/">Go to https://developer.apple.com/programs/enroll/</a></p>
+          <p>Cliclk the button on the bottom of the page</p>
+          <p><img src="./img/apple_publish_1.jpg" width="250"></p>
+          <p>You have to type your personal information and pay 99$ for apple developer account (it's for one year, after that you have to pay again to keep developer account).</p>
+          <p><img src="./img/apple_publish_2.jpg" width="250"></p>
+          <p>After everything is ok you will see something like this and then you have to wait up too fiew days to get email confirmation</p>
+          <p><img src="./img/apple_publish_3.jpg" width="250"></p>
+        </div>
+      </li>
+
+      <!-- Second Step -->
+      <li>
+        <a href="#!">
+          <span class="circle">2</span>
+          <span class="label">Certification</span>
+        </a>
+      </li>
+
+      <!-- Third Step -->
+      <li>
+        <a href="#!">
+          <span class="circle">3</span>
+          <span class="label">PhoneGap Build</span>
+        </a>
+      </li>
+
+      <!-- Fourth Step -->
+      <li>
+        <a href="#!">
+          <span class="circle">4</span>
+          <span class="label">App Uploader</span>
+        </a>
+      </li>
+
+      <!-- Fifth Step -->
+      <li>
+        <a href="#!">
+          <span class="circle">5</span>
+          <span class="label">App Store Connect</span>
+        </a>
+      </li>
+
+    </ul>
+`;
+steps.push(step);
+
+step = `
+    <ul class="stepper stepper-vertical">
+
+      <!-- First Step -->
+      <li class="completed">
+        <a href="#!">
+          <span class="circle">1</span>
+          <span class="label">Get Apple Developer Account</span>
+        </a>
+      </li>
+
+  <!-- Second Step -->
+  <li class="active">
+        <!--Section Title -->
+        <a href="#!">
+          <span class="circle">2</span>
+          <span class="label">Certification</span>
+        </a>
+
+        <!-- Section Description -->
+        <div class="step-content grey lighten-3">
+          <p>Create certSigningRequest on your Mac OS system (can be created using virtualbox)</p>
+          <p><img src="./img/apple_publish_4.jpg" width="250"></p>
+          <p>Open keychain Access app</p>
+          <p>In the menu click Keychain Access -> Certificate Assistant -> Request a Certificate From a Certificate Authority...</p>
+          <p><img src="./img/apple_publish_5.jpg" width="250"></p>
+          <p>You can send this certificate to your email adress or select save on disk</p>
+          <p><a href="https://developer.apple.com/account/">Log in https://developer.apple.com/account/</a></p>
+          <p><img src="./img/apple_publish_6.jpg" width="250"></p>
+          <p>Click Certificates, Identifiers & Profiles</p>
+          <p>Click create new Certificate -> choose iOS Distribution --> upload certSigningRequest</p>
+          <p><img src="./img/apple_publish_7.jpg" width="250"></p>
+          <p>Download .cer file</p>
+          <p><img src="./img/apple_publish_8.jpg" width="250"></p>
+          <p>After dowloading double click your .cer file</p>
+          <p><img src="./img/apple_publish_9.jpg" width="250"></p>
+          <p>Select both certificate and private right click and select export 2 items then click save</p>
+          <p><img src="./img/apple_publish_10.jpg" width="250"></p>
+          <p>Create password</p>
+          <p><img src="./img/apple_publish_11.jpg" width="250"></p>
+          <p>Click allow and then you have .p12 file</p>   
+          <p><img src="./img/apple_publish_12.jpg" width="250"></p>
+          <p><a href="https://developer.apple.com/account/resources/profiles/list">Go to https://developer.apple.com/account/resources/profiles/list</a></p> 
+          <p>Click add new profile</p> 
+          <p>Anser all question and then download .mobileprovision file</p>               
+        </div>
+      </li>
+
+      <!-- Third Step -->
+      <li>
+        <a href="#!">
+          <span class="circle">3</span>
+          <span class="label">PhoneGap Build</span>
+        </a>
+      </li>
+
+      <!-- Fourth Step -->
+      <li>
+        <a href="#!">
+          <span class="circle">4</span>
+          <span class="label">App Uploader</span>
+        </a>
+      </li>
+
+      <!-- Fifth Step -->
+      <li>
+        <a href="#!">
+          <span class="circle">5</span>
+          <span class="label">App Store Connect</span>
+        </a>
+      </li>
+
+    </ul>
+`;
+steps.push(step);
+
+step = `
+    <ul class="stepper stepper-vertical">
+
+      <!-- First Step -->
+      <li class="completed">
+        <a href="#!">
+          <span class="circle">1</span>
+          <span class="label">Get Apple Developer Account</span>
+        </a>
+      </li>
+
+	  <!-- Second Step -->
+	    <li class="completed">
+        <a href="#!">
+          <span class="circle">2</span>
+          <span class="label">Certification</span>
+        </a>
+      </li>
+
+      <!-- Third Step -->
+ 	 <li class="active">
+        <!--Section Title -->
+        <a href="#!">
+          <span class="circle">3</span>
+          <span class="label">PhoneGap Build</span>
+        </a>
+
+        <!-- Section Description -->
+        <div class="step-content grey lighten-3">
+          <p>Edit config.xml</p>
+
+<div class="text-left">
+<p><pre><code>
+&lt;preference name=&quot;phonegap-version&quot; value=&quot;cli-7.1.0&quot; /&gt;
+</code></pre></p>
+
+<div class="text-center"><p>
+We need to change version off phonegap (default is 6.5.0)
+</p></div>
+
+<p><pre><code>
+&lt;!-- &lt;plugin name=&quot;cordova-plugin-console&quot; source=&quot;npm&quot; spec=&quot;~1.0.2&quot; /&gt; --&gt;
+</code></pre></p>  
+
+<div class="text-center"><p>
+Plugin console is not working correctly with version 7.1 we have to deleate it or comment it up
+</p></div>
+
+<p><pre><code>
+&lt;platform name=&quot;ios&quot;&gt;<br />
+&nbsp;&lt;icon height=&quot;1024&quot; platform=&quot;ios&quot; src=&quot;www/res/icon/ios/icon.png&quot; width=&quot;1024&quot;/&gt;
+&nbsp;...
+&nbsp;...
+&nbsp;...
+&lt;splash height=&quot;1024&quot; platform=&quot;ios&quot; src=&quot;www/res/screen/ios/icon.png&quot; width=&quot;1024&quot; /&gt;
+&nbsp;...
+&nbsp;...
+&nbsp;...
+&lt;/platform&gt;
+</code></pre></p>  
+
+<div class="text-center"><p>
+We have to make sure that logo 1024x1024 png file is inside source code
+</p></div>
+
+<p><pre><code>
+&lt;edit-config target=&quot;NSLocationWhenInUseUsageDescription&quot; file=&quot;*-Info.plist&quot; mode=&quot;merge&quot;&gt;<br />
+&lt;string&gt;A message that tells the user why the app is requesting access to the user&rsquo;s location information while the app is running in the foreground.&lt;/string&gt;<br />
+&lt;/edit-config&gt;
+
+&lt;edit-config target=&quot;NSPhotoLibraryUsageDescription&quot; file=&quot;*-Info.plist&quot; mode=&quot;merge&quot;&gt;<br />
+&lt;string&gt;A message that tells the user why the app is requesting access to the user&rsquo;s photo library.&lt;/string&gt;<br />
+&lt;/edit-config&gt;
+
+&lt;edit-config target=&quot;NSLocationAlwaysUsageDescription&quot; file=&quot;*-Info.plist&quot; mode=&quot;merge&quot;&gt;<br />
+&lt;string&gt;A message that tells the user why the app is requesting access to the user&#39;s location at all times.&lt;/string&gt;<br />
+&lt;/edit-config&gt;
+
+</code></pre></p> 
+
+<div class="text-center"><p>
+We need to add Purpose String in Info.plist and explain to user why we need to access some off Iphone functions
+</p></div>
+
+<p><img src="./img/apple_publish_13.jpg" width="250"></p>
+
+<p>Pack your app to .zip package</p>
+<p>Upload to Phonagap Build</p>
+<p>Click add key and upload files created in preavius step</p>
+
+</div>
+
+        </div>
+      </li>
+
+      <!-- Fourth Step -->
+      <li>
+        <a href="#!">
+          <span class="circle">4</span>
+          <span class="label">App Uploader</span>
+        </a>
+      </li>
+
+      <!-- Fifth Step -->
+      <li>
+        <a href="#!">
+          <span class="circle">5</span>
+          <span class="label">App Store Connect</span>
+        </a>
+      </li>
+
+    </ul>
+`;
+steps.push(step);
+
+step = `
+    <ul class="stepper stepper-vertical">
+
+      <!-- First Step -->
+      <li class="completed">
+        <a href="#!">
+          <span class="circle">1</span>
+          <span class="label">Get Apple Developer Account</span>
+        </a>
+      </li>
+
+      <!-- Second Step -->
+      <li class="completed">
+        <a href="#!">
+          <span class="circle">2</span>
+          <span class="label">Certification</span>
+        </a>
+      </li>
+
+      <!-- Third Step -->
+      <li class="completed">
+        <a href="#!">
+          <span class="circle">3</span>
+          <span class="label">PhoneGap Build</span>
+        </a>
+      </li>
+
+      <!-- Fourth Step -->
+  	  <li class="active">
+        <!--Section Title -->
+        <a href="#!">
+          <span class="circle">4</span>
+          <span class="label">App Uploader</span>
+        </a>
+
+        <!-- Section Description -->
+        <div class="step-content grey lighten-3">
+          <p><a href="https://appleid.apple.com/">Log in https://appleid.apple.com</a></p>
+          <p><img src="./img/apple_publish_14.jpg" width="250"></p>    
+          <p>Under section Seciurity click Generate password</p>    
+          <p><img src="./img/apple_publish_15.jpg" width="250"></p> 
+          <p>Create label and then your password will be generated</p>  
+          <p><a href="http://www.appuploader.net/">Download App Uploader</a></p> 
+          <p><img src="./img/apple_publish_16.jpg" width="250"></p>  
+          <p>This application work on Mac OS, Windows and Linux (7 day tray then you have too pay 40$ per year)</p> 
+          <p><img src="./img/apple_publish_17.jpg" width="250"></p> 
+          <p>Affter loging in setting menu put yor app-specyfic password</p> 
+          <p><img src="./img/apple_publish_18.jpg" width="250"></p> 
+          <p>Click Single IPA button on main page and upload ios file that you can download on phonegap build</p> 
+        </div>
+      </li>
+
+      <!-- Fifth Step -->
+      <li>
+        <a href="#!">
+          <span class="circle">5</span>
+          <span class="label">App Store Connect</span>
+        </a>
+      </li>
+
+    </ul>
+`;
+steps.push(step);
+
+step = `
+    <ul class="stepper stepper-vertical">
+
+      <!-- First Step -->
+      <li class="completed">
+        <a href="#!">
+          <span class="circle">1</span>
+          <span class="label">Get Apple Developer Account</span>
+        </a>
+      </li>
+
+      <!-- Second Step -->
+      <li class="completed">
+        <a href="#!">
+          <span class="circle">2</span>
+          <span class="label">Certification</span>
+        </a>
+      </li>
+
+      <!-- Third Step -->
+      <li class="completed">
+        <a href="#!">
+          <span class="circle">3</span>
+          <span class="label">PhoneGap Build</span>
+        </a>
+      </li>
+
+      <!-- Fourth Step -->
+      <li class="completed">
+        <a href="#!">
+          <span class="circle">4</span>
+          <span class="label">App Uploader</span>
+        </a>
+      </li>
+
+      <!-- Fifth Step -->
+  	  <li class="active">
+        <!--Section Title -->
+        <a href="#!">
+          <span class="circle">5</span>
+          <span class="label">App Store Connect</span>
+        </a>
+
+        <!-- Section Description -->
+        <div class="step-content grey lighten-3">
+          <p><a href="https://appstoreconnect.apple.com">Log in https://appstoreconnect.apple.com</a></p>
+          <p><img src="./img/apple_publish_19.jpg" width="250"></p> 
+          <p>Click My apps -> add new app</p>
+          <p><a href="https://app-privacy-policy-generator.firebaseapp.com">Generate privacy policy</a></p>
+          <p><img src="./img/apple_publish_20.jpg" width="250"></p> 
+          <p>Type your app information</p>
+          <p><img src="./img/apple_publish_21.jpg" width="250"></p> 
+          <p>In IOS APP section upload screenshots of your app</p>
+          <p>Resolution requiments:</p>
+          <p><pre>
+6.5" Display 1242 x 2688
+5.5" Display 1242 x 2208 
+12.9" Display 2048 x 2732
+          </pre></p>
+          <p><img src="./img/apple_publish_22.jpg" width="250"></p> 
+          <p>If you dident uploaded any builds using App Uploader you will get this information</p>
+          <p><img src="./img/apple_publish_23.jpg" width="250"></p> 
+          <p>If you did uploaded any builds it will ask you to select one</p>
+          <p><img src="./img/apple_publish_24.jpg" width="250"></p> 
+          <p>Select build</p>
+          <p><img src="./img/apple_publish_25.jpg" width="250"></p> 
+          <p>Type all other information about your app on this page and click submit to review button</p>
+        </div>
+      </li>
+
+    </ul>
+`;
+steps.push(step);
+
+document.getElementById('preavious').addEventListener('click',preavious);
+document.getElementById('next').addEventListener('click',next);
+
+var i = 0;
+
+var step_by_step = new Object();
+step_by_step.choosed = 4;
+step_by_step.length = steps.length - 1;
+
+document.getElementById("stepper_content").innerHTML = steps[step_by_step.choosed];
+
+function preavious(){
+  if (step_by_step.choosed == 0){
+    //pass
+  }
+  else {
+    step_by_step.choosed = step_by_step.choosed - 1;
+    document.getElementById("stepper_content").innerHTML = steps[step_by_step.choosed];
+  }
+}
+
+function next(){
+  if (step_by_step.choosed == step_by_step.length){
+    //pass
+  }
+  else {
+    step_by_step.choosed = step_by_step.choosed + 1;
+    document.getElementById("stepper_content").innerHTML = steps[step_by_step.choosed];
+  }
+}
+</script>
+
+<script  src="./js/index.js"></script>
+</body>
+
+</html>

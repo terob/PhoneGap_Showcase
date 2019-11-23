@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+<style>
+a.disabled {
+  /* Make the disabled links grayish*/
+  color: gray;
+  /* And disable the pointer events */
+  pointer-events: none;
+}
+</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" 
+            content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; 
+            style-src 'self' 'unsafe-inline'; 
+            media-src *; 
+            script-src 'self' 'unsafe-inline';
+            img-src 'self' data: content:;">
+  <title>Index</title>
+  <link rel='stylesheet' href='./css/bootstrap.min.css'>
+  <link rel="stylesheet" href="./css/sidebarNavigation.css">
+  <script  src="cordova.js"></script>
+  <link href="./styles/monokai-sublime.css" rel="stylesheet">
+  <link href="./css/all.css" rel="stylesheet"> <!--load all styles -->
+  <script src="./js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+<nav class="navbar navbar-inverse sidebarNavigation" data-sidebarClass="navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle left-navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">PhoneGap Showcase</a>
+    </div>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active-no"><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Plugin API <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="battery.html">Battery Status</a></li>
+            <li><a href="camera.html">Camera</a></li>
+            <li><a href="device_info.html">Device Info</a></li>
+            <li><a href="dialogs.html">Dialogs</a></li>
+            <li><a href="geolocation.html">Geolocation</a></li>
+            <li><a href="in_app_browser.html">InAppBrowser</a></li>
+            <li><a href="media.html">Media</a></li>
+            <li><a href="network_information.html">Network Information</a></li>
+            <li><a href="vibration.html">Vibration</a></li>
+            <li><a href="device_motion.html">Device Motion</a></li>
+            <li><a href="file.html">File</a></li>
+            <li><a href="file_transfer.html">File Transfer</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="json.html"><span class="glyphicon glyphicon-globe"></span> JSON</a></li>
+        <li><a href="android.html"><i class="fab fa-android"></i> Publish in Android Store</a></li>
+        <li><a href="apple.html"><i class="fab fa-apple"></i> Publish in IOS Store</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script src='./js/jquery.min.js'></script>
+<script src='./js/bootstrap.min.js'></script>
+<script  src="./js/sidebarNavigation.js"></script>
+
+<div class="container-fluid panel-body text-center">
+
+<h3>File Transfer:</h3>
+
+<p><img src="./img/logo.jpg" id='img' style="width: 100px; height: 100px;"></p>
+<p><button id='but_take'>Take photo</button></p>
+<p><button id='but_select'>Select photo from Gallery</button></p>
+
+<p>Phonegap HTML</p>
+  <div class="text-left">
+<pre><code class="html">
+<p>&lt;p&gt;&lt;img src=&quot;./img/logo.jpg&quot; id=&#39;img&#39; style=&quot;width: 100px; height: 100px;&quot;&gt;&lt;/p&gt;<br />
+&lt;p&gt;&lt;button id=&#39;but_take&#39;&gt;Take photo&lt;/button&gt;&lt;/p&gt;<br />
+&lt;p&gt;&lt;button id=&#39;but_select&#39;&gt;Select photo from Gallery&lt;/button&gt;&lt;/p&gt;</p>
+</code></pre>
+  </div>
+
+
+<p>Phonegap JS</p>
+  <div class="text-left">
+<pre><code>
+$(document).ready(function(){
+
+    // take picture from camera
+    $('#but_take').click(function(){      
+        navigator.camera.getPicture(onSuccess, onFail, { quality: 20,
+            destinationType: Camera.DestinationType.FILE_URL 
+        });
+    });
+
+    // upload select 
+    $("#but_select").click(function(){
+        navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+            sourceType: Camera.PictureSourceType.PHOTOLIBRARY, 
+            allowEdit: true,
+            destinationType: Camera.DestinationType.FILE_URI
+        });
+    });
+
+    // Change image source and upload photo to server
+    function onSuccess(imageURI) {
+        // Set image source
+        var image = document.getElementById('img');
+        image.src = imageURI  + '?' + Math.random();
+
+        var options = new FileUploadOptions();
+        options.fileKey = "file";
+        options.fileName = imageURI.substr(imageURI.lastIndexOf('/') + 1);
+        options.mimeType = "image/jpeg";
+
+        var params = {};
+        params.value1 = "test";
+        params.value2 = "param";
+
+        options.params = params;
+        options.chunkedMode = false;
+
+        var ft = new FileTransfer();
+        ft.upload(imageURI, "http://python-nauka.cba.pl/upload.php", function(result){
+            alert('successfully uploaded ' + result.response);
+            image.src = result.response;
+        }, function(error){
+            alert('error : ' + JSON.stringify(error));
+        }, options);
+    }
+    function onFail(message) {
+        alert('Failed because: ' + message);
+    }
+});
+</code></pre>
+  </div>
+
+<p>upload.php</p>
+  <div class="text-left">
+<pre><code class="php">
+<p>&lt;?php</p>
+<p>// Set new file name<br />
+$new_image_name = &quot;newimage_&quot;.mt_rand().&quot;.jpg&quot;;</p>
+<p>// upload file<br />
+move_uploaded_file($_FILES[&quot;file&quot;][&quot;tmp_name&quot;], &#39;upload/&#39;.$new_image_name);<br />
+sleep(9);<br />
+echo &quot;http://python-nauka.cba.pl/MY_VIDEO_POSTER.jpg&quot;;<br />
+?&gt;</p>
+</code></pre>
+  </div>
+
+
+</div>
+<script  src="./js/index.js"></script>
+</body>
+
+</html>
